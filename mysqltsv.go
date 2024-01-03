@@ -6,6 +6,7 @@ package mysqltsv
 import (
 	"bufio"
 	"database/sql/driver"
+	"encoding/json"
 	"fmt"
 	"io"
 	"strconv"
@@ -166,6 +167,8 @@ func valueToBytes(v any, cfg *EncoderOptions) ([]byte, error) {
 	case string:
 		return []byte(v), nil
 	case []byte:
+		return v, nil
+	case json.RawMessage:
 		return v, nil
 	case uint8:
 		return []byte(strconv.FormatUint(uint64(v), 10)), nil
