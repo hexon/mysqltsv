@@ -14,7 +14,7 @@ import (
 )
 
 // Escaping explains the escaping this package uses for inclusion in a LOAD DATA INFILE statement.
-const Escaping = `FIELDS TERMINATED BY '\t' OPTIONALLY ENCLOSED BY '"' ESCAPED BY '\\' LINES TERMINATED BY '\n' STARTING BY ''`
+const Escaping = `CHARACTER SET binary FIELDS TERMINATED BY '\t' OPTIONALLY ENCLOSED BY '"' ESCAPED BY '\\' LINES TERMINATED BY '\n' STARTING BY ''`
 
 /*
 type Options struct {
