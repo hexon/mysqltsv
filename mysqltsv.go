@@ -61,7 +61,7 @@ type Encoder struct {
 // EncoderOptions is optional.
 func NewEncoder(w io.Writer, numColumns int, cfg *EncoderOptions) *Encoder {
 	return &Encoder{
-		w:                bufio.NewWriter(w),
+		w:                bufio.NewWriterSize(w, 16*1024),
 		numColumnsPerRow: numColumns,
 		colsLeftInRow:    numColumns,
 		encoderOptions:   cfg,
