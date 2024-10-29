@@ -197,6 +197,10 @@ func valueToBytes(v any, cfg *EncoderOptions) ([]byte, error) {
 			return []byte{'1'}, nil
 		}
 		return []byte{'0'}, nil
+	case float32:
+		return []byte(strconv.FormatFloat(float64(v), 'f', -1, 32)), nil
+	case float64:
+		return []byte(strconv.FormatFloat(v, 'f', -1, 64)), nil
 	case time.Time:
 		if cfg != nil && cfg.Location != nil {
 			v = v.In(cfg.Location)
